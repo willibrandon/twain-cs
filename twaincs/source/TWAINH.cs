@@ -1121,11 +1121,9 @@ namespace TWAINWorkingGroup
         /// <summary>
         /// Used to register callbacks.
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable")]
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         public struct TW_CALLBACK
         {
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr CallBackProc;
             public uint RefCon;
             public ushort Message;
@@ -1137,9 +1135,7 @@ namespace TWAINWorkingGroup
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         public struct TW_CALLBACK2
         {
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr CallBackProc;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public UIntPtr RefCon;
             public ushort Message;
         }
@@ -1152,7 +1148,6 @@ namespace TWAINWorkingGroup
         {
             public CAP Cap;
             public TWON ConType;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr hContainer;
         }
 
@@ -1193,7 +1188,6 @@ namespace TWAINWorkingGroup
         public struct TW_CUSTOMDSDATA
         {
             public uint InfoLength;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr hData;
         }
 
@@ -1235,36 +1229,25 @@ namespace TWAINWorkingGroup
         public struct TW_ENTRYPOINT
         {
             public UInt32 Size;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_Entry;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemAllocate;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemFree;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemLock;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemUnlock;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         public struct TW_ENTRYPOINT_LINUX64
         {
             public long Size;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_Entry;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemAllocate;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemFree;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemLock;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_MemUnlock;
         }
         public struct TW_ENTRYPOINT_DELEGATES
         {
             public UInt32 Size;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr DSM_Entry;
             public DSM_MEMALLOC DSM_MemAllocate;
             public DSM_MEMFREE DSM_MemFree;
@@ -1312,11 +1295,9 @@ namespace TWAINWorkingGroup
         /// <summary>
         /// Used to pass application events/messages from the application to the Source.
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable")]
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         public struct TW_EVENT
         {
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr pEvent;
             public ushort TWMessage;
         }
@@ -1347,7 +1328,6 @@ namespace TWAINWorkingGroup
             public UInt32 DescriptorCount;
             public UInt32 MaxDescriptorCount;
             public UInt32 Condition;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr hDescriptors;
         }
 
@@ -1361,7 +1341,6 @@ namespace TWAINWorkingGroup
             public ushort ItemType;
             public ushort NumItems;
             public ushort ReturnCode;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public UIntPtr Item;
         }
 
@@ -1994,8 +1973,6 @@ namespace TWAINWorkingGroup
         /// Provides information about the currently selected device.
         /// TBD -- need a 32/64 bit solution for this mess
         /// </summary>
-        [SuppressMessage("Microsoft.Portability", "CA1900:ValueTypeFieldsShouldBePortable", MessageId = "ModifiedTimeDate")]
-        [SuppressMessage("Microsoft.Portability", "CA1900:ValueTypeFieldsShouldBePortable", MessageId = "CreateTimeDate")]
         [StructLayout(LayoutKind.Explicit, Pack = 2)]
         public struct TW_FILESYSTEM
         {
@@ -2005,7 +1982,6 @@ namespace TWAINWorkingGroup
             [FieldOffset(256)]
             public TW_STR255 OutputName;
 
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             [FieldOffset(512)]
             public IntPtr Context;
 
@@ -2049,7 +2025,7 @@ namespace TWAINWorkingGroup
             [FieldOffset(1127)] // 620 + 508 - 1
             private byte ReservedEnd;
         }
-        [SuppressMessage("Microsoft.Portability", "CA1900:ValueTypeFieldsShouldBePortable", MessageId = "ModifiedTimeDate")]
+
         [StructLayout(LayoutKind.Explicit, Pack = 2)]
         public struct TW_FILESYSTEM_LEGACY
         {
@@ -2251,7 +2227,6 @@ namespace TWAINWorkingGroup
         {
             public uint Flags;
             public uint Length;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr TheMem;
         }
 
@@ -2282,7 +2257,6 @@ namespace TWAINWorkingGroup
             public UInt64 BytesWritten;
             public UInt64 MemoryFlags;
             public UInt64 MemoryLength;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr MemoryTheMem;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
@@ -2369,11 +2343,9 @@ namespace TWAINWorkingGroup
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         public struct TW_PASSTHRU
         {
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr pCommand;
             public uint CommandBytes;
             public int Direction;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr pData;
             public uint DataBytes;
             public uint DataBytesXfered;
@@ -2492,7 +2464,6 @@ namespace TWAINWorkingGroup
         {
             public TW_STATUS Status;
             public uint Size;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr UTF8string;
         }
 
@@ -2504,10 +2475,8 @@ namespace TWAINWorkingGroup
         {
             public uint SizeOf;
             public ushort CommunicationManager;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr Send;
             public uint SendSize;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr Receive;
             public uint ReceiveSize;
         }
@@ -2520,7 +2489,6 @@ namespace TWAINWorkingGroup
         {
             public ushort ShowUI;
             public ushort ModalUI;
-            [SuppressMessage("Microsoft.Security", "CA2111:PointersShouldNotBeVisible")]
             public IntPtr hParent;
         }
 
@@ -4373,6 +4341,11 @@ namespace TWAINWorkingGroup
         /// </summary>
         private static class Language
         {
+            static Language()
+            {
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            }
+
             /// <summary>
             /// The encoding to use for strings to/from the DS
             /// </summary>
@@ -4679,7 +4652,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="memref"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryNullDest
         (
@@ -4690,7 +4662,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryNullDest
         (
@@ -4701,7 +4673,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryNullDest
         (
@@ -4712,7 +4684,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryNullDest
         (
@@ -4723,7 +4695,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryNullDest
         (
@@ -4734,7 +4706,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryNullDest
         (
@@ -4745,7 +4717,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryNullDest
         (
@@ -4769,7 +4741,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="memref"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntry
         (
@@ -4780,7 +4751,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntry
         (
@@ -4791,7 +4762,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntry
         (
@@ -4802,7 +4773,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntry
         (
@@ -4813,7 +4784,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntry
         (
@@ -4824,7 +4795,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntry
         (
@@ -4835,7 +4806,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntry
         (
@@ -4858,7 +4829,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="memref"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryAudioAudiofilexfer
         (
@@ -4869,7 +4839,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryAudioAudiofilexfer
         (
@@ -4880,7 +4850,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryAudioAudiofilexfer
         (
@@ -4891,7 +4861,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryAudioAudiofilexfer
         (
@@ -4902,7 +4872,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryAudioAudiofilexfer
         (
@@ -4913,7 +4883,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryAudioAudiofilexfer
         (
@@ -4924,7 +4894,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr memref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryAudioAudiofilexfer
         (
@@ -4946,7 +4916,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twaudioinfo"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryAudioAudioinfo
         (
@@ -4957,7 +4926,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryAudioAudioinfo
         (
@@ -4968,7 +4937,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryAudioAudioinfo
         (
@@ -4979,7 +4948,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryAudioAudioinfo
         (
@@ -4990,7 +4959,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryAudioAudioinfo
         (
@@ -5001,7 +4970,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryAudioAudioinfo
         (
@@ -5012,7 +4981,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_AUDIOINFO twaudioinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryAudioAudioinfo
         (
@@ -5046,7 +5015,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twcallback"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryCallback
         (
@@ -5057,7 +5025,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryCallback
         (
@@ -5068,7 +5036,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryCallback
         (
@@ -5079,7 +5047,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryCallback
         (
@@ -5090,7 +5058,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryCallback
         (
@@ -5101,7 +5069,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryCallback
         (
@@ -5112,7 +5080,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryCallback
         (
@@ -5170,7 +5138,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twcallback"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryCallback2
         (
@@ -5181,7 +5148,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback2
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryCallback2
         (
@@ -5192,7 +5159,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback2
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryCallback2
         (
@@ -5203,7 +5170,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback2
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryCallback2
         (
@@ -5214,7 +5181,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback2
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryCallback2
         (
@@ -5225,7 +5192,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback2
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryCallback2
         (
@@ -5236,7 +5203,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CALLBACK2 twcallback
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryCallback2
         (
@@ -5294,7 +5261,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twcapability"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryCapability
         (
@@ -5305,7 +5271,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryCapability
         (
@@ -5316,7 +5282,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryCapability
         (
@@ -5327,7 +5293,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryCapability
         (
@@ -5338,7 +5304,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryCapability
         (
@@ -5349,7 +5315,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryCapability
         (
@@ -5360,7 +5326,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CAPABILITY twcapability
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryCapability
         (
@@ -5382,7 +5348,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twcustomdsdata"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryCustomdsdata
         (
@@ -5393,7 +5358,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomedsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryCustomdsdata
         (
@@ -5404,7 +5369,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomdsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryCustomdsdata
         (
@@ -5415,7 +5380,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomdsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryCustomdsdata
         (
@@ -5426,7 +5391,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomdsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryCustomdsdata
         (
@@ -5437,7 +5402,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomdsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryCustomdsdata
         (
@@ -5448,7 +5413,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CUSTOMDSDATA twcustomedsdata
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryCustomdsdata
         (
@@ -5470,7 +5435,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twdeviceevent"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryDeviceevent
         (
@@ -5481,7 +5445,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryDeviceevent
         (
@@ -5492,7 +5456,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryDeviceevent
         (
@@ -5503,7 +5467,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryDeviceevent
         (
@@ -5514,7 +5478,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryDeviceevent
         (
@@ -5525,7 +5489,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryDeviceevent
         (
@@ -5536,7 +5500,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_DEVICEEVENT twdeviceevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryDeviceevent
         (
@@ -5558,7 +5522,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twevent"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryEvent
         (
@@ -5569,7 +5532,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryEvent
         (
@@ -5580,7 +5543,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryEvent
         (
@@ -5591,7 +5554,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryEvent
         (
@@ -5602,7 +5565,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryEvent
         (
@@ -5613,7 +5576,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryEvent
         (
@@ -5624,7 +5587,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EVENT twevent
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryEvent
         (
@@ -5646,7 +5609,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twentrypoint"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryEntrypoint
         (
@@ -5657,7 +5619,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryEntrypoint
         (
@@ -5668,7 +5630,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryEntrypoint
         (
@@ -5679,7 +5641,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryEntrypoint
         (
@@ -5690,7 +5652,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryEntrypoint
         (
@@ -5701,7 +5663,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT_LINUX64 twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryEntrypoint
         (
@@ -5712,7 +5674,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_ENTRYPOINT twentrypoint
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryEntrypoint
         (
@@ -5734,7 +5696,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twentrypoint"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryFilesystem
         (
@@ -5745,7 +5706,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryFilesystem
         (
@@ -5756,7 +5717,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryFilesystem
         (
@@ -5767,7 +5728,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryFilesystem
         (
@@ -5778,7 +5739,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryFilesystem
         (
@@ -5789,7 +5750,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryFilesystem
         (
@@ -5800,7 +5761,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILESYSTEM twfilesystem
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryFilesystem
         (
@@ -5822,7 +5783,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twidentity"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryIdentity
         (
@@ -5833,7 +5793,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LEGACY twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryIdentityState4
         (
@@ -5844,7 +5804,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LEGACY twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryIdentity
         (
@@ -5855,7 +5815,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LEGACY twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryIdentity
         (
@@ -5866,7 +5826,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LEGACY twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryIdentity
         (
@@ -5877,7 +5837,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LEGACY twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+ 
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryIdentity
         (
@@ -5888,7 +5848,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_LINUX64 twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryIdentity
         (
@@ -5899,7 +5859,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IDENTITY_MACOSX twidentity
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryIdentity
         (
@@ -5933,7 +5893,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="hbitmap"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryParent
         (
@@ -5944,7 +5903,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryParent
         (
@@ -5955,7 +5914,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryParent
         (
@@ -5966,7 +5925,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryParent
         (
@@ -5977,7 +5936,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryParent
         (
@@ -5988,7 +5947,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryParent
         (
@@ -5999,7 +5958,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr hwnd
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryParent
         (
@@ -6021,7 +5980,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twpassthru"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryPassthru
         (
@@ -6032,7 +5990,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryPassthru
         (
@@ -6043,7 +6001,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryPassthru
         (
@@ -6054,7 +6012,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryPassthru
         (
@@ -6065,7 +6023,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryPassthru
         (
@@ -6076,7 +6034,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryPassthru
         (
@@ -6087,7 +6045,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PASSTHRU twpassthru
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryPassthru
         (
@@ -6109,7 +6067,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twpendingxfers"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryPendingxfers
         (
@@ -6120,7 +6077,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryPendingxfers
         (
@@ -6131,7 +6088,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryPendingxfers
         (
@@ -6142,7 +6099,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryPendingxfers
         (
@@ -6153,7 +6110,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryPendingxfers
         (
@@ -6164,7 +6121,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryPendingxfers
         (
@@ -6175,7 +6132,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PENDINGXFERS twpendingxfers
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryPendingxfers
         (
@@ -6197,7 +6154,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twsetupfilexfer"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntrySetupfilexfer
         (
@@ -6208,7 +6164,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntrySetupfilexfer
         (
@@ -6219,7 +6175,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntrySetupfilexfer
         (
@@ -6230,7 +6186,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntrySetupfilexfer
         (
@@ -6241,7 +6197,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntrySetupfilexfer
         (
@@ -6252,7 +6208,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntrySetupfilexfer
         (
@@ -6263,7 +6219,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPFILEXFER twsetupfilexfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntrySetupfilexfer
         (
@@ -6285,7 +6241,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twsetupmemxfer"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntrySetupmemxfer
         (
@@ -6296,7 +6251,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntrySetupmemxfer
         (
@@ -6307,7 +6262,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntrySetupmemxfer
         (
@@ -6318,7 +6273,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntrySetupmemxfer
         (
@@ -6329,7 +6284,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntrySetupmemxfer
         (
@@ -6340,7 +6295,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntrySetupmemxfer
         (
@@ -6351,7 +6306,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_SETUPMEMXFER twsetupmemxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntrySetupmemxfer
         (
@@ -6373,7 +6328,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twstatus"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryStatus
         (
@@ -6384,7 +6338,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryStatusState3
         (
@@ -6395,7 +6349,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryStatus
         (
@@ -6406,7 +6360,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryStatusState3
         (
@@ -6417,7 +6371,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryStatus
         (
@@ -6428,7 +6382,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryStatusState3
         (
@@ -6439,7 +6393,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryStatus
         (
@@ -6450,7 +6404,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryStatusState3
         (
@@ -6461,7 +6415,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryStatus
         (
@@ -6472,7 +6426,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryStatusState3
         (
@@ -6483,7 +6437,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryStatus
         (
@@ -6494,7 +6448,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryStatusState3
         (
@@ -6505,7 +6459,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryStatus
         (
@@ -6516,7 +6470,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUS twstatus
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryStatusState3
         (
@@ -6538,7 +6492,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twstatusutf8"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryStatusutf8
         (
@@ -6549,7 +6502,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryStatusutf8
         (
@@ -6560,7 +6513,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryStatusutf8
         (
@@ -6571,7 +6524,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryStatusutf8
         (
@@ -6582,7 +6535,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryStatusutf8
         (
@@ -6593,7 +6546,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryStatusutf8
         (
@@ -6604,7 +6557,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_STATUSUTF8 twstatusutf8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryStatusutf8
         (
@@ -6626,7 +6579,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twtwaindirect"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryTwaindirect
         (
@@ -6637,7 +6589,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryTwaindirect
         (
@@ -6648,7 +6600,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryTwaindirect
         (
@@ -6659,7 +6611,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryTwaindirect
         (
@@ -6670,7 +6622,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryTwaindirect
         (
@@ -6681,7 +6633,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryTwaindirect
         (
@@ -6692,7 +6644,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_TWAINDIRECT twtwaindirect
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryTwaindirect
         (
@@ -6714,7 +6666,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twuserinterface"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryUserinterface
         (
@@ -6725,7 +6676,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryUserinterface
         (
@@ -6736,7 +6687,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryUserinterface
         (
@@ -6747,7 +6698,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryUserinterface
         (
@@ -6758,7 +6709,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryUserinterface
         (
@@ -6769,7 +6720,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryUserinterface
         (
@@ -6780,7 +6731,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_USERINTERFACE twuserinterface
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryUserinterface
         (
@@ -6802,7 +6753,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twuint32"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryXfergroup
         (
@@ -6813,7 +6763,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryXfergroup
         (
@@ -6824,7 +6774,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryXfergroup
         (
@@ -6835,7 +6785,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryXfergroup
         (
@@ -6846,7 +6796,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryXfergroup
         (
@@ -6857,7 +6807,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryXfergroup
         (
@@ -6868,7 +6818,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref UInt32 twuint32
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryXfergroup
         (
@@ -6890,7 +6840,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twmemref"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryAudiofilexfer
         (
@@ -6901,7 +6850,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryAudiofilexfer
         (
@@ -6912,7 +6861,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryAudiofilexfer
         (
@@ -6923,7 +6872,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryAudiofilexfer
         (
@@ -6934,7 +6883,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+ 
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryAudiofilexfer
         (
@@ -6945,7 +6894,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryAudiofilexfer
         (
@@ -6956,7 +6905,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryAudiofilexfer
         (
@@ -6978,7 +6927,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="intptr"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryAudionativexfer
         (
@@ -6989,7 +6937,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrWav
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryAudionativexfer
         (
@@ -7000,7 +6948,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrWav
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryAudionativexfer
         (
@@ -7011,7 +6959,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrWav
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryAudionativexfer
         (
@@ -7022,7 +6970,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrWav
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryAudionativexfer
         (
@@ -7033,7 +6981,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrWav
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryAudionativexfer
         (
@@ -7044,7 +6992,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrAiff
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryAudionativexfer
         (
@@ -7066,7 +7014,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twciecolor"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryCiecolor
         (
@@ -7077,7 +7024,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryCiecolor
         (
@@ -7088,7 +7035,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryCiecolor
         (
@@ -7099,7 +7046,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryCiecolor
         (
@@ -7110,7 +7057,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryCiecolor
         (
@@ -7121,7 +7068,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryCiecolor
         (
@@ -7132,7 +7079,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_CIECOLOR twciecolor
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryCiecolor
         (
@@ -7154,7 +7101,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twextimageinfo"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryExtimageinfo
         (
@@ -7165,7 +7111,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryExtimageinfo
         (
@@ -7176,7 +7122,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryExtimageinfo
         (
@@ -7187,7 +7133,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryExtimageinfo
         (
@@ -7198,7 +7144,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryExtimageinfo
         (
@@ -7209,7 +7155,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryExtimageinfo
         (
@@ -7220,7 +7166,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_EXTIMAGEINFO twextimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryExtimageinfo
         (
@@ -7242,7 +7188,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twfilter"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryFilter
         (
@@ -7253,7 +7198,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryFilter
         (
@@ -7264,7 +7209,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryFilter
         (
@@ -7275,7 +7220,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryFilter
         (
@@ -7286,7 +7231,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryFilter
         (
@@ -7297,7 +7242,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryFilter
         (
@@ -7308,7 +7253,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_FILTER twfilter
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryFilter
         (
@@ -7330,7 +7275,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twgrayresponse"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryGrayresponse
         (
@@ -7341,7 +7285,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryGrayresponse
         (
@@ -7352,7 +7296,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryGrayresponse
         (
@@ -7363,7 +7307,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryGrayresponse
         (
@@ -7374,7 +7318,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryGrayresponse
         (
@@ -7385,7 +7329,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryGrayresponse
         (
@@ -7396,7 +7340,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_GRAYRESPONSE twgrayresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryGrayresponse
         (
@@ -7418,7 +7362,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twmemory"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryIccprofile
         (
@@ -7429,7 +7372,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryIccprofile
         (
@@ -7440,7 +7383,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryIccprofile
         (
@@ -7451,7 +7394,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryIccprofile
         (
@@ -7462,7 +7405,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryIccprofile
         (
@@ -7473,7 +7416,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryIccprofile
         (
@@ -7484,7 +7427,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_MEMORY twmemory
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryIccprofile
         (
@@ -7506,7 +7449,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twmemref"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImagefilexfer
         (
@@ -7517,7 +7459,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImagefilexfer
         (
@@ -7528,7 +7470,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImagefilexfer
         (
@@ -7539,7 +7481,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImagefilexfer
         (
@@ -7550,7 +7492,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImagefilexfer
         (
@@ -7561,7 +7503,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImagefilexfer
         (
@@ -7572,7 +7514,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             IntPtr twmemref
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImagefilexfer
         (
@@ -7594,7 +7536,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twimageinfo"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImageinfo
         (
@@ -7605,7 +7546,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO twimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImageinfo
         (
@@ -7616,7 +7557,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO twimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImageinfo
         (
@@ -7627,7 +7568,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO twimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImageinfo
         (
@@ -7638,7 +7579,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO twimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImageinfo
         (
@@ -7649,7 +7590,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO_LINUX64 twimageinfolinux64
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImageinfo
         (
@@ -7660,7 +7601,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEINFO twimageinfo
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImageinfo
         (
@@ -7682,7 +7623,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twimagelayout"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImagelayout
         (
@@ -7693,7 +7633,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+ 
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImagelayout
         (
@@ -7704,7 +7644,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImagelayout
         (
@@ -7715,7 +7655,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImagelayout
         (
@@ -7726,7 +7666,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImagelayout
         (
@@ -7737,7 +7677,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImagelayout
         (
@@ -7748,7 +7688,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGELAYOUT twimagelayout
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImagelayout
         (
@@ -7770,7 +7710,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twimagememxfer"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImagememfilexfer
         (
@@ -7781,7 +7720,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImagememfilexfer
         (
@@ -7792,7 +7731,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImagememfilexfer
         (
@@ -7803,7 +7742,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImagememfilexfer
         (
@@ -7814,7 +7753,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImagememfilexfer
         (
@@ -7825,7 +7764,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER_LINUX64 twimagememxferlinux64
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImagememfilexfer
         (
@@ -7836,7 +7775,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER_MACOSX twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImagememfilexfer
         (
@@ -7858,7 +7797,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twimagememxfer"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImagememxfer
         (
@@ -7869,7 +7807,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImagememxfer
         (
@@ -7880,7 +7818,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImagememxfer
         (
@@ -7891,7 +7829,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImagememxfer
         (
@@ -7902,7 +7840,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImagememxfer
         (
@@ -7913,7 +7851,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER_LINUX64 twimagememxferlinux64
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImagememxfer
         (
@@ -7924,7 +7862,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_IMAGEMEMXFER_MACOSX twimagememxfer
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImagememxfer
         (
@@ -7946,7 +7884,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryImagenativexfer
         (
@@ -7957,7 +7894,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryImagenativexfer
         (
@@ -7968,7 +7905,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryImagenativexfer
         (
@@ -7979,7 +7916,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryImagenativexfer
         (
@@ -7990,7 +7927,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryImagenativexfer
         (
@@ -8001,7 +7938,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryImagenativexfer
         (
@@ -8012,7 +7949,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref IntPtr intptrBitmap
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryImagenativexfer
         (
@@ -8034,7 +7971,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twjpegcompression"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryJpegcompression
         (
@@ -8045,7 +7981,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryJpegcompression
         (
@@ -8056,7 +7992,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryJpegcompression
         (
@@ -8067,7 +8003,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryJpegcompression
         (
@@ -8078,7 +8014,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryJpegcompression
         (
@@ -8089,7 +8025,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryJpegcompression
         (
@@ -8100,7 +8036,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_JPEGCOMPRESSION twjpegcompression
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryJpegcompression
         (
@@ -8122,7 +8058,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twmetrics"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryMetrics
         (
@@ -8133,7 +8068,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryMetrics
         (
@@ -8144,7 +8079,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryMetrics
         (
@@ -8155,7 +8090,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryMetrics
         (
@@ -8166,7 +8101,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryMetrics
         (
@@ -8177,7 +8112,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryMetrics
         (
@@ -8188,7 +8123,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_METRICS twmetrics
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryMetrics
         (
@@ -8210,7 +8145,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twpalette8"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryPalette8
         (
@@ -8221,7 +8155,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryPalette8
         (
@@ -8232,7 +8166,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryPalette8
         (
@@ -8243,7 +8177,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryPalette8
         (
@@ -8254,7 +8188,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryPalette8
         (
@@ -8265,7 +8199,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryPalette8
         (
@@ -8276,7 +8210,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_PALETTE8 twpalette8
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryPalette8
         (
@@ -8298,7 +8232,6 @@ namespace TWAINWorkingGroup
         /// <param name="msg"></param>
         /// <param name="twrgbresponse"></param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [DllImport("twain_32.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwain32DsmEntryRgbresponse
         (
@@ -8309,7 +8242,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("twaindsm.dll", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 WindowsTwaindsmDsmEntryRgbresponse
         (
@@ -8320,7 +8253,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 LinuxDsmEntryRgbresponse
         (
@@ -8331,7 +8264,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib64/libtwaindsm.so", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux64DsmEntryRgbresponse
         (
@@ -8342,7 +8275,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/usr/local/lib/libtwaindsm.so.2.3.2", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 Linux020302Dsm64bitEntryRgbresponse
         (
@@ -8353,7 +8286,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/System/Library/Frameworks/TWAIN.framework/TWAIN", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwainDsmEntryRgbresponse
         (
@@ -8364,7 +8297,7 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
+
         [DllImport("/Library/Frameworks/TWAINDSM.framework/TWAINDSM", EntryPoint = "DSM_Entry", CharSet = CharSet.Ansi)]
         internal static extern UInt16 MacosxTwaindsmDsmEntryRgbresponse
         (
@@ -8375,6 +8308,5 @@ namespace TWAINWorkingGroup
             TWAIN.MSG msg,
             ref TWAIN.TW_RGBRESPONSE twrgbresponse
         );
-
     }
 }

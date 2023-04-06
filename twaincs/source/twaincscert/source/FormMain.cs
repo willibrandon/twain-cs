@@ -36,7 +36,6 @@ namespace twaincscert
         /// </summary>
         /// <param name="a_message">Message to process</param>
         /// <returns>Result of the processing</returns>
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage(ref Message a_message)
         {
             if (m_terminal != null)

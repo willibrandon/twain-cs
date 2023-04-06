@@ -31,6 +31,7 @@
 
 // Helpers...
 using System;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using TWAINWorkingGroup;
@@ -46,6 +47,8 @@ namespace twaincscert
         [STAThread]
         static void Main(string[] a_aszArgs)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             string szExecutableName;
             string szWriteFolder;
 
@@ -72,6 +75,7 @@ namespace twaincscert
             {
                 // Init our form...
                 Application.EnableVisualStyles();
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.SetCompatibleTextRenderingDefault(false);
                 FormMain formmain = new FormMain();
 

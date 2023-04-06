@@ -56,7 +56,6 @@ namespace TWAINCSScan
         /// Our constructor...
         /// </summary>
         /// <param name="a_twaincstool"></param>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public FormSetup(FormScan a_formscan, ref TWAIN a_twain, string a_szProductDirectory)
         {
             TWAIN.STS sts;

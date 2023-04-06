@@ -74,8 +74,8 @@ namespace TWAINCSTst
         /// </summary>
         public FormMain()
         {
-            ContextMenu contextmenu;
-            MenuItem menuitem;
+            ContextMenuStrip contextmenu;
+            ToolStripMenuItem menuitem;
 
             // Init our form...
             InitializeComponent();
@@ -148,25 +148,25 @@ namespace TWAINCSTst
             AutoDropdown("", "", "");
 
             // Context menu for our value box...
-            contextmenu = new ContextMenu();
-            menuitem = new MenuItem("Copy");
+            contextmenu = new ContextMenuStrip();
+            menuitem = new ToolStripMenuItem("Copy");
             menuitem.Click += new EventHandler(richtextboxcapability_Copy);
-            contextmenu.MenuItems.Add(menuitem);
-            menuitem = new MenuItem("Paste");
+            contextmenu.Items.Add(menuitem);
+            menuitem = new ToolStripMenuItem("Paste");
             menuitem.Click += new EventHandler(richtextboxcapability_Paste);
-            contextmenu.MenuItems.Add(menuitem);
-            m_richtextboxCapability.ContextMenu = contextmenu;
+            contextmenu.Items.Add(menuitem);
+            m_richtextboxCapability.ContextMenuStrip = contextmenu;
             contextmenu = null;
 
             // Context menu for our output box...
-            contextmenu = new ContextMenu();
-            menuitem = new MenuItem("Copy");
+            contextmenu = new ContextMenuStrip();
+            menuitem = new ToolStripMenuItem("Copy");
             menuitem.Click += new EventHandler(richtextboxoutput_Copy);
-            contextmenu.MenuItems.Add(menuitem);
-            menuitem = new MenuItem("Paste");
+            contextmenu.Items.Add(menuitem);
+            menuitem = new ToolStripMenuItem("Paste");
             menuitem.Click += new EventHandler(richtextboxoutput_Paste);
-            contextmenu.MenuItems.Add(menuitem);
-            m_richtextboxOutput.ContextMenu = contextmenu;
+            contextmenu.Items.Add(menuitem);
+            m_richtextboxOutput.ContextMenuStrip = contextmenu;
             contextmenu = null;
 
             // Set the capbility box to our app info...
@@ -187,7 +187,6 @@ namespace TWAINCSTst
         /// </summary>
         /// <param name="a_message">Message to process</param>
         /// <returns>Result of the processing</returns>
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage(ref Message a_message)
         {
             if (m_twain != null)
@@ -1223,8 +1222,6 @@ namespace TWAINCSTst
         /// Cleanup, pulled from the designer...
         /// </summary>
         /// <param name="a_blDisposing">true if we need to clean up managed resources</param>
-        [SuppressMessage("Microsoft.Security", "CA2123:OverrideLinkDemandsShouldBeIdenticalToBase")]
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected override void Dispose(bool a_blDisposing)
         {
             // Free managed resources...

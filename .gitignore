@@ -3,8 +3,14 @@
 ################################################################################
 
 *.suo
-/twaincs/source/bin/x86/Debug/TWAIN.dll
+*.user
 *.pdb
+bin
+obj
+packages
+*.clef
+
+/twaincs/source/bin/x86/Debug/TWAIN.dll
 /twaincs/source/obj
 /twaincs/source/twaincsscan/source/bin/x86/Debug
 /twaincs/source/twaincsscan/source/obj

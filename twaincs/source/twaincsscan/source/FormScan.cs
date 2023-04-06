@@ -217,7 +217,6 @@ namespace TWAINCSScan
         /// </summary>
         /// <param name="a_message">Message to process</param>
         /// <returns>Result of the processing</returns>
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage(ref Message a_message)
         {
             if (m_twain != null)
@@ -250,7 +249,6 @@ namespace TWAINCSScan
         /// </summary>
         /// <param name="a_szFile">File to use to restore driver settings</param>
         /// <returns>SUCCESS if the restore succeeded</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public TWAIN.STS RestoreSnapshot(string a_szFile)
         {
             TWAIN.STS sts;
@@ -310,7 +308,6 @@ namespace TWAINCSScan
         /// </summary>
         /// <param name="a_szFile">File to receive driver settings</param>
         /// <returns>SUCCESS if the restore succeeded</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public TWAIN.STS SaveSnapshot(string a_szFile)
         {
             TWAIN.STS sts;
@@ -718,8 +715,6 @@ namespace TWAINCSScan
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        [SuppressMessage("Microsoft.Security", "CA2123:OverrideLinkDemandsShouldBeIdenticalToBase")]
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))

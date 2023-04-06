@@ -314,7 +314,6 @@ namespace twaincscert
         /// <param name="a_intptrWparam">Argument to message</param>
         /// <param name="a_intptrLparam">Another argument to message</param>
         /// <returns></returns>
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public bool PreFilterMessage
         (
             IntPtr a_intptrHwnd,
@@ -10146,21 +10145,15 @@ namespace twaincscert
         public static extern int FreeLibrary(IntPtr handle);
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
-        [SuppressMessage("Microsoft.Portability", "CA1901:PInvokeDeclarationsShouldBePortable", MessageId = "return", Justification = "This declaration is not used on 64-bit Windows.")]
-        [SuppressMessage("Microsoft.Portability", "CA1901:PInvokeDeclarationsShouldBePortable", MessageId = "2", Justification = "This declaration is not used on 64-bit Windows.")]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLongPtr")]
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist", Justification = "Entry point does exist on 64-bit Windows.")]
         public static extern IntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", SetLastError = true, EntryPoint = "SetWindowLong")]
-        [SuppressMessage("Microsoft.Portability", "CA1901:PInvokeDeclarationsShouldBePortable", MessageId = "return", Justification = "This declaration is not used on 64-bit Windows.")]
-        [SuppressMessage("Microsoft.Portability", "CA1901:PInvokeDeclarationsShouldBePortable", MessageId = "2", Justification = "This declaration is not used on 64-bit Windows.")]
         public static extern int SetWindowLong(IntPtr hWnd, Int32 nIndex, int dwNewLong);
 
         [DllImport("user32.dll", SetLastError = true, EntryPoint = "SetWindowLongPtr")]
-        [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist", Justification = "Entry point does exist on 64-bit Windows.")]
         public static extern IntPtr SetWindowLongPtr(IntPtr hWnd, Int32 nIndex, IntPtr dwNewLong);
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -10218,7 +10211,6 @@ namespace twaincscert
         public delegate IntPtr WndProcDelegate(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        [SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable", Justification = "Not allocating any resources.")]
         public struct WNDCLASSEXW
         {
             [MarshalAs(UnmanagedType.U4)]

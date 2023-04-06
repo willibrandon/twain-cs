@@ -50,6 +50,7 @@ using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
+using System.Text;
 using System.Threading;
 
 namespace TWAINWorkingGroup
@@ -117,7 +118,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_scancallback">Function to handle scanning</param>
         /// <param name="a_runinuithreaddelegate">Help us run in the GUI thread on Windows</param>
         /// <param name="a_intptrHwnd">window handle</param>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public TWAIN
         (
             string a_szManufacturer,
@@ -371,8 +371,6 @@ namespace TWAINWorkingGroup
         /// <summary>
         /// Cleanup...
         /// </summary>
-        [SuppressMessage("Microsoft.Security", "CA2123:OverrideLinkDemandsShouldBeIdenticalToBase")]
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public void Dispose()
         {
             Dispose(true);
@@ -473,7 +471,6 @@ namespace TWAINWorkingGroup
         /// </summary>
         /// <param name="a_u32Size">Number of bytes to allocate</param>
         /// <returns>Point to memory</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public IntPtr DsmMemAlloc(uint a_u32Size, bool a_blForcePointer = false)
         {
             IntPtr intptr;
@@ -539,7 +536,6 @@ namespace TWAINWorkingGroup
         /// Free memory used with the data source...
         /// </summary>
         /// <param name="a_intptrHandle">Pointer to free</param>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public void DsmMemFree(ref IntPtr a_intptrHandle, bool a_blForcePointer = false)
         {
             // Validate...
@@ -592,7 +588,6 @@ namespace TWAINWorkingGroup
         /// </summary>
         /// <param name="a_intptrHandle">Handle to lock</param>
         /// <returns>Locked pointer</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public IntPtr DsmMemLock(IntPtr a_intptrHandle)
         {
             // Validate...
@@ -635,7 +630,6 @@ namespace TWAINWorkingGroup
         /// Unlock memory used with the data source...
         /// </summary>
         /// <param name="a_intptrHandle">Handle to unlock</param>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public void DsmMemUnlock(IntPtr a_intptrHandle)
         {
             // Validate...
@@ -747,7 +741,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_intptrWparam">a parameter for the message</param>
         /// <param name="a_intptrLparam">another parameter for the message</param>
         /// <returns></returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public bool PreFilterMessage
         (
             IntPtr a_intptrHwnd,
@@ -803,7 +796,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_stateTarget">The TWAIN state that we want to end up at</param>
         /// <param name="a_blUseThread">Use the thread (most cases)</param>
         static int s_iCloseDsmDelay = 0;
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public TWAIN.STATE Rollback(STATE a_stateTarget, bool a_blUseThread = true)
         {
             int iRetry;
@@ -1734,7 +1726,6 @@ namespace TWAINWorkingGroup
         /// </summary>
         /// <param name="a_twcapability">A TWAIN structure</param>
         /// <returns>A CSV string of the TWAIN structure</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public string CapabilityToCsv(TW_CAPABILITY a_twcapability, bool a_blUseSymbols)
         {
             IntPtr intptr;
@@ -2084,7 +2075,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_szSetting">A CSV string of the TWAIN structure</param>
         /// <param name="a_szValue">The container for this capability</param>
         /// <returns>True if the conversion is successful</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public bool CsvToCapability(ref TW_CAPABILITY a_twcapability, ref string a_szSetting, string a_szValue)
         {
             int ii = 0;
@@ -2418,7 +2408,6 @@ namespace TWAINWorkingGroup
         /// </summary>
         /// <param name="a_twcustomdsdata">A TWAIN structure</param>
         /// <returns>A CSV string of the TWAIN structure</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public string CustomdsdataToCsv(TW_CUSTOMDSDATA a_twcustomdsdata)
         {
             try
@@ -2443,7 +2432,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_twcustomdsdata">A TWAIN structure</param>
         /// <param name="a_szCustomdsdata">A CSV string of the TWAIN structure</param>
         /// <returns>True if the conversion is successful</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public bool CsvToCustomdsdata(ref TW_CUSTOMDSDATA a_twcustomdsdata, string a_szCustomdsdata)
         {
             // Init stuff...
@@ -2516,11 +2504,11 @@ namespace TWAINWorkingGroup
             {
                 CSV csv = new CSV();
                 csv.Add(a_twentrypoint.Size.ToString());
-                csv.Add("0x" + ((a_twentrypoint.DSM_Entry == null)?"0":a_twentrypoint.DSM_Entry.ToString("X")));
-                csv.Add("0x" + ((a_twentrypoint.DSM_MemAllocate == null) ? "0" : a_twentrypoint.DSM_MemAllocate.ToString("X")));
-                csv.Add("0x" + ((a_twentrypoint.DSM_MemFree == null) ? "0" : a_twentrypoint.DSM_MemFree.ToString("X")));
-                csv.Add("0x" + ((a_twentrypoint.DSM_MemLock == null) ? "0" : a_twentrypoint.DSM_MemLock.ToString("X")));
-                csv.Add("0x" + ((a_twentrypoint.DSM_MemUnlock == null) ? "0" : a_twentrypoint.DSM_MemUnlock.ToString("X")));
+                csv.Add("0x" + ((a_twentrypoint.DSM_Entry == IntPtr.Zero) ? "0" : a_twentrypoint.DSM_Entry.ToString("X")));
+                csv.Add("0x" + ((a_twentrypoint.DSM_MemAllocate == IntPtr.Zero) ? "0" : a_twentrypoint.DSM_MemAllocate.ToString("X")));
+                csv.Add("0x" + ((a_twentrypoint.DSM_MemFree == IntPtr.Zero) ? "0" : a_twentrypoint.DSM_MemFree.ToString("X")));
+                csv.Add("0x" + ((a_twentrypoint.DSM_MemLock == IntPtr.Zero) ? "0" : a_twentrypoint.DSM_MemLock.ToString("X")));
+                csv.Add("0x" + ((a_twentrypoint.DSM_MemUnlock == IntPtr.Zero) ? "0" : a_twentrypoint.DSM_MemUnlock.ToString("X")));
                 return (csv.Get());
             }
             catch (Exception exception)
@@ -5043,7 +5031,6 @@ namespace TWAINWorkingGroup
                 ref m_threaddataDatAudionativexfer.intptrAudio
             );
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public STS DatAudionativexfer(DG a_dg, MSG a_msg, ref IntPtr a_intptrAudio)
         {
             STS sts;
@@ -5527,7 +5514,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_msg">Operation</param>
         /// <param name="a_twcapability">CAPABILITY structure</param>
         /// <returns>TWAIN status</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         private void DatCapabilityWindowsTwain32()
         {
             // If you get a first chance exception, be aware that some drivers
@@ -5973,7 +5959,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_msg">Operation</param>
         /// <param name="a_twcustomdsdata">CUSTOMDSDATA structure</param>
         /// <returns>TWAIN status</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public STS DatCustomdsdata(DG a_dg, MSG a_msg, ref TW_CUSTOMDSDATA a_twcustomdsdata)
         {
             STS sts;
@@ -6264,7 +6249,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_msg">Operation</param>
         /// <param name="a_twentrypoint">ENTRYPOINT structure</param>
         /// <returns>TWAIN status</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public STS DatEntrypoint(DG a_dg, MSG a_msg, ref TW_ENTRYPOINT a_twentrypoint)
         {
             STS sts;
@@ -6418,19 +6402,20 @@ namespace TWAINWorkingGroup
                 m_twentrypointdelegates = default(TWAIN.TW_ENTRYPOINT_DELEGATES);
                 m_twentrypointdelegates.Size = a_twentrypoint.Size;
                 m_twentrypointdelegates.DSM_Entry = a_twentrypoint.DSM_Entry;
-                if (a_twentrypoint.DSM_MemAllocate != null)
+
+                if (a_twentrypoint.DSM_MemAllocate != IntPtr.Zero)
                 {
                     m_twentrypointdelegates.DSM_MemAllocate = (TWAIN.DSM_MEMALLOC)Marshal.GetDelegateForFunctionPointer(a_twentrypoint.DSM_MemAllocate,typeof(TWAIN.DSM_MEMALLOC));
                 }
-                if (a_twentrypoint.DSM_MemFree != null)
+                if (a_twentrypoint.DSM_MemFree != IntPtr.Zero)
                 {
                     m_twentrypointdelegates.DSM_MemFree = (TWAIN.DSM_MEMFREE)Marshal.GetDelegateForFunctionPointer(a_twentrypoint.DSM_MemFree, typeof(TWAIN.DSM_MEMFREE));
                 }
-                if (a_twentrypoint.DSM_MemLock != null)
+                if (a_twentrypoint.DSM_MemLock != IntPtr.Zero)
                 {
                     m_twentrypointdelegates.DSM_MemLock = (TWAIN.DSM_MEMLOCK)Marshal.GetDelegateForFunctionPointer(a_twentrypoint.DSM_MemLock, typeof(TWAIN.DSM_MEMLOCK));
                 }
-                if (a_twentrypoint.DSM_MemUnlock != null)
+                if (a_twentrypoint.DSM_MemUnlock != IntPtr.Zero)
                 {
                     m_twentrypointdelegates.DSM_MemUnlock = (TWAIN.DSM_MEMUNLOCK)Marshal.GetDelegateForFunctionPointer(a_twentrypoint.DSM_MemUnlock, typeof(TWAIN.DSM_MEMUNLOCK));
                 }
@@ -7471,6 +7456,7 @@ namespace TWAINWorkingGroup
                 );
             }
         }
+
         private void DatIdentityWindowsTwainDsm()
         {
             // If you get a first chance exception, be aware that some drivers
@@ -7485,7 +7471,7 @@ namespace TWAINWorkingGroup
                 ref m_threaddataDatIdentity.twidentitylegacy
             );
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
+
         public STS DatIdentity(DG a_dg, MSG a_msg, ref TW_IDENTITY a_twidentity)
         {
             STS sts;
@@ -9244,19 +9230,19 @@ namespace TWAINWorkingGroup
                 ref m_threaddataDatImagenativexfer.intptrBitmap
             );
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
+
         public STS DatImagenativexfer(DG a_dg, MSG a_msg, ref Bitmap a_bitmap)
         {
             IntPtr intptrBitmapHandle = IntPtr.Zero;
             return (DatImagenativexferBitmap(a_dg, a_msg, ref a_bitmap, ref intptrBitmapHandle, false));
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
+
         public STS DatImagenativexferHandle(DG a_dg, MSG a_msg, ref IntPtr a_intptrBitmapHandle)
         {
             Bitmap bitmap = null;
             return (DatImagenativexferBitmap(a_dg, a_msg, ref bitmap, ref a_intptrBitmapHandle, true));
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
+
         public STS DatImagenativexferBitmap(DG a_dg, MSG a_msg, ref Bitmap a_bitmap, ref IntPtr a_intptrBitmapHandle, bool a_blUseBitmapHandle)
         {
             STS sts;
@@ -9929,7 +9915,7 @@ namespace TWAINWorkingGroup
                 ref m_threaddataDatParent.intptrHwnd
             );
         }
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
+
         public STS DatParent(DG a_dg, MSG a_msg, ref IntPtr a_intptrHwnd)
         {
             STS sts;
@@ -12388,7 +12374,6 @@ namespace TWAINWorkingGroup
         /// Cleanup...
         /// </summary>
         /// <param name="a_blDisposing">true if we need to clean up managed resources</param>
-        [SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         internal void Dispose(bool a_blDisposing)
         {
             // Free managed resources...
@@ -13221,7 +13206,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_intptr">Pointer to the data</param>
         /// <param name="a_iIndex">Index of the item in the data</param>
         /// <returns>Data in CSV form</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public string GetIndexedItem(TW_CAPABILITY a_twcapability, TWTY a_twty, IntPtr a_intptr, int a_iIndex)
         {
             IntPtr intptr;
@@ -13333,7 +13317,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_iIndex">Index for item in the data</param>
         /// <param name="a_szValue">CSV value to be used to set the data</param>
         /// <returns>Empty string or an error string</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public string SetIndexedItem(TW_CAPABILITY a_twcapability, TWTY a_twty, IntPtr a_intptr, int a_iIndex, string a_szValue)
         {
             IntPtr intptr;
@@ -13511,7 +13494,6 @@ namespace TWAINWorkingGroup
         /// <param name="a_intptr">Pointer to the data</param>
         /// <param name="a_asz">List of strings</param>
         /// <returns>Empty string or an error string</returns>
-        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust", Unrestricted = false)]
         public string SetRangeItem(TWTY a_twty, IntPtr a_intptr, string[] a_asz)
         {
             TW_RANGE twrange = default(TW_RANGE);
@@ -14328,7 +14310,6 @@ namespace TWAINWorkingGroup
         /// <summary>
         /// The data we share with the thread...
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable")]
         private struct ThreadData
         {
             // The state of the structure...
